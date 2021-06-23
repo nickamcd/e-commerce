@@ -1,3 +1,12 @@
+$primary: #8D6852;
+$secondary: #817978;
+$info: #372d30;
+$success: #609a51;
+$warning: #dd8a19;
+$danger: #f44336;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 :root {
   font-size: 16px;
   --dark: rgb(49, 40, 35);
@@ -8,9 +17,10 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom right, var(--brown-light), var(--brown-medium));
+  background-image: linear-gradient(to bottom right, white, var(--brown-light));
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
