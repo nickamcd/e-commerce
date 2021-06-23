@@ -1,11 +1,12 @@
-import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
-import './App.css';
+import Products from './components/Products/Products'
+
+import './App.css'
 
 const App = () => {
   return (
-    <div>
-      Hello
-    </div>
+    <>
+      <Products />
+    </>
   );
 }
 

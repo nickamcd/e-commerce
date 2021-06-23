@@ -1,0 +1,11 @@
+.product {
+  color: white;
+  background-color: var(--light);
+  border: 1px solid var(--dark);
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+}
