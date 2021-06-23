@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './reset.css'
-import './index.scss'
+import './index.scss' // bootstrap styling with custom theming colors
 import App from './App'
 
 ReactDOM.render(

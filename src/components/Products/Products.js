@@ -1,6 +1,11 @@
 import Product from './Product/Product'
 import './Products.css'
 
+import { 
+  Container, 
+  Row 
+} from 'react-bootstrap'
+
 // Dummy products
 const products = [
   { id: 1, name: "Accomplish", roast: "Cinnamon", origin: "Colombia", price: "$19", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2CAAe9a7Xd3hMikB2Hp2ZQHaHa%26pid%3DApi&f=1" },
@@ -29,16 +34,16 @@ const products = [
 const Products = () => {
   return (
     <main className="products">
-      <div>
+      <Container>
         <h1 className="col-12">Products</h1>
-      </div>
-      <div className="product-grid container-fluid">
-        <div className="row justify-content-evenly">
+      </Container>
+      <Container fluid>
+        <Row className="justify-content-evenly">
           { products.map((product) => {
             return <Product product={ product }/>
           }) }
-        </div>
-      </div>
+        </Row>
+      </Container>
     </main>
   )
 }

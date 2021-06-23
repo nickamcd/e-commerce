@@ -1,8 +1,39 @@
 import './Product.css'
 import { FaCartPlus } from 'react-icons/fa'
+import { 
+  Col, 
+  Card,
+  Button,
+} from 'react-bootstrap'
 
 const Product = ({ product }) => {
   return (
+    <Col className="product mb-5 ms-1" xs={8} md={4} lg={3} xl={2}>
+      <Card className="shadow-lg">
+        <Card.Header className="bg-primary text-white text-center">
+          <Card.Title>{ product.name }</Card.Title>
+        </Card.Header>
+        <Card.Img className="card-image" variant="top" src={ product.image } />
+        <Card.Body >
+          <Card.Text className="h4">
+            Roast: { product.roast }
+          </Card.Text>
+          <Card.Text className="h5">
+            Country of Origin: { product.origin }
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer className="text-white bg-primary d-flex justify-content-between align-items-center">
+          <span>Price: { product.price }</span>
+          <Button variant="outline-info" title="Add to Cart"><i><FaCartPlus /></i></Button>
+        </Card.Footer>
+      </Card>
+    </Col>
+  )
+}
+
+export default Product
+
+/* 
     <div className="product mb-5 ms-1 col-8 col-md-4 col-lg-3 col-xl-2" >
       <div className="card border-0 shadow-lg">
         <div className="card-header text-white bg-primary text-center"><h3>{ product.name }</h3></div>
@@ -20,7 +51,4 @@ const Product = ({ product }) => {
         </div>
       </div>
     </div>
-  )
-}
-
-export default Product
+*/
