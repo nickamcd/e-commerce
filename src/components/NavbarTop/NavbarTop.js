@@ -8,7 +8,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { GiCoffeePot } from 'react-icons/gi'
 import './NavbarTop.css'
 
-const NavbarTop = () => {
+const NavbarTop = ({ totalItems }) => {
   return (
     <>
       <Navbar bg="secondary" variant="dark" fixed="top">
@@ -18,7 +18,7 @@ const NavbarTop = () => {
             <span>The Hot Pot</span>
           </Navbar.Brand>
           <Button variant="outline-info" title="Checkout">
-            <FaShoppingCart /> <Badge>2</Badge>
+            <FaShoppingCart /> <Badge>{ totalItems }</Badge>
           </Button>
         </Container>
       </Navbar>

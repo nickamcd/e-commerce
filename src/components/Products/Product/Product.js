@@ -6,7 +6,7 @@ import {
   Button,
 } from 'react-bootstrap'
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddToCart }) => {
   return (
     <Col className="product mb-5 ms-1" xs={8} md={4} lg={3} xl={2}>
       <Card className="shadow-lg" title={ product.name }>
@@ -19,7 +19,9 @@ const Product = ({ product }) => {
         </Card.Body>
         <Card.Footer className="text-white bg-primary d-flex justify-content-between align-items-center">
           <span>Price: { product.price.formatted_with_symbol }</span>
-          <Button variant="outline-info" title="Add to Cart"><i><FaCartPlus /></i></Button>
+          <Button variant="outline-info" title="Add to Cart" onClick={ () => onAddToCart(product.id, 1) } >
+            <FaCartPlus />
+          </Button>
         </Card.Footer>
       </Card>
     </Col>

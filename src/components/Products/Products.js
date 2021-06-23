@@ -6,7 +6,7 @@ import {
   Row 
 } from 'react-bootstrap'
 
-const Products = ({ products }) => {
+const Products = ({ products, onAddToCart }) => {
   return (
     <main className="products">
       <Container>
@@ -15,7 +15,7 @@ const Products = ({ products }) => {
       <Container fluid>
         <Row className="justify-content-evenly">
           { products.map((product) => {
-            return <Product product={ product }/>
+            return <Product product={ product } onAddToCart={ onAddToCart } />
           }) }
         </Row>
       </Container>
