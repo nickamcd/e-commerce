@@ -9,18 +9,16 @@ import {
 const Product = ({ product }) => {
   return (
     <Col className="product mb-5 ms-1" xs={8} md={4} lg={3} xl={2}>
-      <Card className="shadow-lg">
+      <Card className="shadow-lg" title={ product.name }>
         <Card.Header className="bg-primary text-white text-center">
           <Card.Title>{ product.name }</Card.Title>
         </Card.Header>
-        <Card.Img className="card-image" variant="top" src={ product.image } />
+        <Card.Img className="card-image" variant="top" src={ product.media.source } />
         <Card.Body >
-          <Card.Text className="h4">
-            { product.description }
-          </Card.Text>
+          <Card.Text className="h4" dangerouslySetInnerHTML={{__html: product.description}} ></Card.Text>
         </Card.Body>
         <Card.Footer className="text-white bg-primary d-flex justify-content-between align-items-center">
-          <span>Price: { product.price }</span>
+          <span>Price: { product.price.formatted_with_symbol }</span>
           <Button variant="outline-info" title="Add to Cart"><i><FaCartPlus /></i></Button>
         </Card.Footer>
       </Card>

@@ -6,9 +6,27 @@ import {
   Row 
 } from 'react-bootstrap'
 
-// Dummy products
-const products = [
-  { id: 1, name: "Accomplish", description: "Roast: Cinnamon, Country of Origin: Colombia", price: "$19", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2CAAe9a7Xd3hMikB2Hp2ZQHaHa%26pid%3DApi&f=1" },
+const Products = ({ products }) => {
+  return (
+    <main className="products">
+      <Container>
+        <h1 className="col-12">Products</h1>
+      </Container>
+      <Container fluid>
+        <Row className="justify-content-evenly">
+          { products.map((product) => {
+            return <Product product={ product }/>
+          }) }
+        </Row>
+      </Container>
+    </main>
+  )
+}
+
+export default Products
+
+/*
+  ß{ id: 1, name: "Accomplish", description: "Roast: Cinnamon, Country of Origin: Colombia", price: "$19", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2CAAe9a7Xd3hMikB2Hp2ZQHaHa%26pid%3DApi&f=1" },
   { id: 2, name: "Courage", description: "Roast: Light, Country of Origin: Indonesia", price: "$14", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.X4YqVFM6KJrr9Xevl7WnYAHaFj%26pid%3DApi&f=1" },
   { id: 3, name: "Dare", description: "Roast: Blonde, Country of Origin: Ethiopia", price: "$17", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TLgGjzJrqB2WvSjp1_k3WwHaEB%26pid%3DApi&f=1" },
   { id: 4, name: "Listen", description: "Roast: Medium, Country of Origin: Brazil", price: "$19", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.lJ2lSdH0bUYeKBTLRMvnxQHaHa%26pid%3DApi&f=1" },
@@ -29,23 +47,4 @@ const products = [
   { id: 19, name: "Fulfillment", description: "Roast: Dark, Country of Origin: Uganda", price: "$23", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.JfJwrWlEOxgNioUqVPfM5AHaFj%26pid%3DApi&f=1" },
   { id: 20, name: "Focus", description: "Roast: French, Country of Origin: Madagascar", price: "$21", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.zrpkcT7tvQ9dxp2bwDxlpAHaF6%26pid%3DApi&f=1" },
   { id: 21, name: "Excellence", description: "Roast: Italian, Country of Origin: South Africa", price: "$12", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.n--BFWcVplBwBOMS52cAQgHaHa%26pid%3DApi&f=1"},
-]
-
-const Products = () => {
-  return (
-    <main className="products">
-      <Container>
-        <h1 className="col-12">Products</h1>
-      </Container>
-      <Container fluid>
-        <Row className="justify-content-evenly">
-          { products.map((product) => {
-            return <Product product={ product }/>
-          }) }
-        </Row>
-      </Container>
-    </main>
-  )
-}
-
-export default Products
+*/
