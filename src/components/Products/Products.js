@@ -3,7 +3,7 @@ import './Products.css'
 
 // Dummy products
 const products = [
-  { id: 1, name: "Accomplish", roast: "Cinnamon=", origin: "Colombia", price: "$19", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2CAAe9a7Xd3hMikB2Hp2ZQHaHa%26pid%3DApi&f=1" },
+  { id: 1, name: "Accomplish", roast: "Cinnamon", origin: "Colombia", price: "$19", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2CAAe9a7Xd3hMikB2Hp2ZQHaHa%26pid%3DApi&f=1" },
   { id: 2, name: "Courage", roast: "Light", origin: "Indonesia", price: "$14", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.X4YqVFM6KJrr9Xevl7WnYAHaFj%26pid%3DApi&f=1" },
   { id: 3, name: "Dare", roast: "Blonde", origin: "Ethiopia", price: "$17", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.TLgGjzJrqB2WvSjp1_k3WwHaEB%26pid%3DApi&f=1" },
   { id: 4, name: "Listen", roast: "Medium", origin: "Brazil", price: "$19", image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.lJ2lSdH0bUYeKBTLRMvnxQHaHa%26pid%3DApi&f=1" },
@@ -28,10 +28,12 @@ const products = [
 
 const Products = () => {
   return (
-    <main>
-      <h1>Products</h1>
-      <div className="product-grid container">
-        <div className="row justify-content-around">
+    <main className="products">
+      <div>
+        <h1 className="col-12">Products</h1>
+      </div>
+      <div className="product-grid container-fluid">
+        <div className="row justify-content-evenly">
           { products.map((product) => {
             return <Product product={ product }/>
           }) }

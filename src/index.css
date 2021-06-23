@@ -1,14 +1,14 @@
 :root {
+  font-size: 16px;
   --dark: rgb(49, 40, 35);
   --light: rgb(178, 178, 178);
-  --brown-light: rgb(251, 239, 223);
+  --brown-light: rgb(235, 215, 190);
   --brown-medium: rgb(141, 104, 82);
   --brown-dark: rgb(70, 46, 37);
 }
 
 body {
-  color: white;
-  background-image: linear-gradient(to bottom right, var(--brown-medium), var(--brown-dark));
+  background-image: linear-gradient(to bottom right, var(--brown-light), var(--brown-medium));
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
