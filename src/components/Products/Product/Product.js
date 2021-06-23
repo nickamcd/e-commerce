@@ -16,10 +16,7 @@ const Product = ({ product }) => {
         <Card.Img className="card-image" variant="top" src={ product.image } />
         <Card.Body >
           <Card.Text className="h4">
-            Roast: { product.roast }
-          </Card.Text>
-          <Card.Text className="h5">
-            Country of Origin: { product.origin }
+            { product.description }
           </Card.Text>
         </Card.Body>
         <Card.Footer className="text-white bg-primary d-flex justify-content-between align-items-center">
