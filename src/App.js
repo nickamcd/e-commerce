@@ -24,9 +24,27 @@ const App = () => {
   }
 
   const handleAddToCart = async (productId, quantity) => {
-    const item = await commerce.cart.add(productId, quantity)
+    const { cart } = await commerce.cart.add(productId, quantity)
 
-    setCart(item.cart)
+    setCart(cart)
+  }
+
+  const handleUpdateCartQuantity = async (productId, quantity) => {
+    const { cart } = await commerce.cart.update(productId, { quantity })
+
+    setCart(cart)
+  }
+
+  const handleRemoveFromCart = async (productId) => {
+    const { cart } = await commerce.cart.remove(productId)
+
+    setCart(cart)
+  }
+
+  const handleEmptyCart = async () => {
+    const { cart } = await commerce.cart.empty()
+
+    setCart(cart)
   }
   
   // use useEffect hook to fetch products on page load
@@ -43,7 +61,12 @@ const App = () => {
           <Products products={ products } onAddToCart={ handleAddToCart } />
         </Route>
         <Route path="/cart">
-          <Cart cart={ cart }/>
+          <Cart 
+            cart={ cart }
+            handleUpdateCartQuantity={ handleUpdateCartQuantity }
+            handleRemoveFromCart={ handleRemoveFromCart }
+            handleEmptyCart={ handleEmptyCart }
+          />
         </Route>
       </Switch>
     </Router>
