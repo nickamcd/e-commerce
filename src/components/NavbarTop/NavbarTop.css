@@ -1,3 +1,7 @@
 .navbar span {
   margin-left: 1rem;
 }
+
+.brand:hover {
+  cursor: pointer;
+}

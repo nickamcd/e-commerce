@@ -1,7 +1,6 @@
 import { 
   Container,
   Row,
-  Col,
   Button,
 } from 'react-bootstrap'
 import CartItem from './CartItem/CartItem'

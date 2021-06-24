@@ -15,7 +15,7 @@ const Products = ({ products, onAddToCart }) => {
       <Container fluid>
         <Row className="justify-content-evenly">
           { products.map((product) => {
-            return <Product product={ product } onAddToCart={ onAddToCart } />
+            return <Product key={ product.id } product={ product } onAddToCart={ onAddToCart } />
           }) }
         </Row>
       </Container>
