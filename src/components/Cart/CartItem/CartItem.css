@@ -1,0 +1,17 @@
+.cart-item {
+  transition: 1s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+}
+
+.cart-item img {
+  height: 150px;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.cart-item-footer {
+  font-size: 0.95rem;
+}
