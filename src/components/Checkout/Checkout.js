@@ -9,7 +9,7 @@ import './Checkout.css'
 
 const Checkout = ({ cart }) => {
   const [checkoutToken, setCheckoutToken] = useState(null)
-  const [shippingData, setShippingData] = useState({})
+  // const [shippingData, setShippingData] = useState({})
 
   useEffect(() => {
     const generateToken = async () => {

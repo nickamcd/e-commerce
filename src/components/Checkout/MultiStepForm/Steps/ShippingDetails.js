@@ -41,7 +41,7 @@ const ShippingDetails = ({ checkoutToken, nextStep, prevStep }) => {
   // on page load
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id)
-  }, [])
+  }, [checkoutToken.id])
 
   // on shipping country change
   useEffect(() => {
@@ -53,7 +53,7 @@ const ShippingDetails = ({ checkoutToken, nextStep, prevStep }) => {
     if (shippingSubdivision) {
       fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision)
     }
-  }, [shippingSubdivision])
+  }, [checkoutToken.id, shippingCountry, shippingSubdivision])
 
   return (
     <Form>

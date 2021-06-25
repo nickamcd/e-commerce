@@ -1,9 +1,5 @@
 import { useState } from 'react'
 import { 
-  Form,
-  Button,
-} from 'react-bootstrap'
-import { 
   Confirmation,
   PaymentDetails,
   ShippingDetails,
@@ -26,6 +22,8 @@ const MultiStepForm = ({ checkoutToken }) => {
         return <PaymentDetails checkoutToken={ checkoutToken } nextStep={ nextStep } prevStep={ prevStep } />
       case 3:
         return <Confirmation />
+      default:
+        // do nothing
     }
   }
 

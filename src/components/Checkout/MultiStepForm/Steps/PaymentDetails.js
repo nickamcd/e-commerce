@@ -19,11 +19,11 @@ const PaymentDetails = ({ checkoutToken, prevStep }) => {
             <Form>
               <CardElement />
               <div className="d-flex justify-content-evenly align-items-center m-4">
-                <Button variant="secondary" title="prev" onClick={ prevStep }>
-                  Previous Step
+                <Button variant="danger" title="prev" onClick={ prevStep }>
+                  Back
                 </Button>
-                <Button variant="secondary" title="next" >
-                  Next Step
+                <Button variant="success" title="next" disabled={ !stripe }>
+                  Pay { checkoutToken.live.subtotal.formatted_with_symbol }
                 </Button>
               </div>
             </Form>
