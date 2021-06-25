@@ -5,7 +5,12 @@ import {
   Switch,
   Route,
 } from 'react-router-dom'
-import { Products, NavbarTop, Cart } from './components'
+import { 
+  Products, 
+  NavbarTop, 
+  Cart,
+  Checkout 
+} from './components'
 
 import './App.css'
 
@@ -15,7 +20,6 @@ const App = () => {
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list()
-
     setProducts(data)
   }
 
@@ -25,25 +29,21 @@ const App = () => {
 
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity)
-
     setCart(cart)
   }
 
   const handleUpdateCartQuantity = async (productId, quantity) => {
     const { cart } = await commerce.cart.update(productId, { quantity })
-
     setCart(cart)
   }
 
   const handleRemoveFromCart = async (productId) => {
     const { cart } = await commerce.cart.remove(productId)
-
     setCart(cart)
   }
 
   const handleEmptyCart = async () => {
     const { cart } = await commerce.cart.empty()
-
     setCart(cart)
   }
   
@@ -67,6 +67,9 @@ const App = () => {
             handleRemoveFromCart={ handleRemoveFromCart }
             handleEmptyCart={ handleEmptyCart }
           />
+        </Route>
+        <Route path="/checkout">
+          <Checkout cart={ cart } />
         </Route>
       </Switch>
     </Router>
