@@ -13,42 +13,26 @@ import {
 const MultiStepForm = ({ checkoutToken }) => {
   const [activeStep, setActiveStep] = useState(0)
 
+  const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
+  const prevStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1) 
+
   const formSwitch = (step, checkoutToken) => {
     switch (step) {
       case 0:
-        return <UserDetails checkoutToken={ checkoutToken } />
+        return <UserDetails checkoutToken={ checkoutToken } nextStep={ nextStep } />
       case 1:
-        return <ShippingDetails checkoutToken={ checkoutToken } />
+        return <ShippingDetails checkoutToken={ checkoutToken } nextStep={ nextStep } prevStep={ prevStep } />
       case 2:
-        return <PaymentDetails checkoutToken={ checkoutToken }/>
+        return <PaymentDetails checkoutToken={ checkoutToken } nextStep={ nextStep } prevStep={ prevStep } />
       case 3:
         return <Confirmation />
     }
   }
 
-  const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
-  const prevStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1) 
-
   return (
-    <Form>
+    <div>
       { formSwitch(activeStep, checkoutToken) }
-      <div className="d-flex justify-content-evenly align-items-center m-4">
-        <Button 
-          variant="secondary" 
-          title="prev"
-          onClick={ () => prevStep() }
-        >
-          Previous Step
-        </Button>
-        <Button 
-          variant="secondary" 
-          title="next"
-          onClick={ () => nextStep() }
-        >
-          Next Step
-        </Button>
-      </div>
-    </Form>
+    </div>
   )
 }
 

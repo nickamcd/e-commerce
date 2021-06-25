@@ -1,12 +1,13 @@
 import { 
   Form,
   Row,
-  Col
+  Col,
+  Button
 } from 'react-bootstrap'
 
-const UserDetails = ({ checkoutToken }) => {
+const UserDetails = ({ checkoutToken, nextStep }) => {
   return (
-    <>
+    <Form>
       <Form.Group>
         <Row className="mb-3">
           <Col xs={12} md={6}>
@@ -27,7 +28,12 @@ const UserDetails = ({ checkoutToken }) => {
           </Col>
         </Row>
       </Form.Group>
-    </>
+      <div className="d-flex justify-content-evenly align-items-center m-4">
+        <Button variant="secondary" title="next" onClick={ nextStep } >
+          Next Step
+        </Button>
+      </div>
+    </Form>
   )
 }
 
