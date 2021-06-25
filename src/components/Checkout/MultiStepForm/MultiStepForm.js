@@ -20,7 +20,7 @@ const MultiStepForm = ({ checkoutToken }) => {
       case 1:
         return <ShippingDetails checkoutToken={ checkoutToken } />
       case 2:
-        return <PaymentDetails />
+        return <PaymentDetails checkoutToken={ checkoutToken }/>
       case 3:
         return <Confirmation />
     }
@@ -32,7 +32,7 @@ const MultiStepForm = ({ checkoutToken }) => {
   return (
     <Form>
       { formSwitch(activeStep, checkoutToken) }
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="d-flex justify-content-evenly align-items-center m-4">
         <Button 
           variant="secondary" 
           title="prev"

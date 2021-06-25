@@ -4,8 +4,7 @@ import {
 } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 import { commerce } from '../../lib/commerce'
-import CheckoutForm from './CheckoutForm/CheckoutForm'
-import MultiStepForm from './CheckoutForm/MultiStepForm/MultiStepForm'
+import MultiStepForm from './MultiStepForm/MultiStepForm'
 import './Checkout.css'
 
 const Checkout = ({ cart }) => {
@@ -33,15 +32,7 @@ const Checkout = ({ cart }) => {
         </Container>
         <Container>
           <Row className="stepper">
-            { checkoutToken && (
-              <MultiStepForm 
-                checkoutToken={ checkoutToken } 
-              /> )
-            }
-            {/* 
-              <h4 className="mb-3">Shipping Address:</h4>
-              { checkoutToken && (<CheckoutForm checkoutToken={ checkoutToken } />) }
-            */}
+            { checkoutToken && ( <MultiStepForm checkoutToken={ checkoutToken } /> ) }
           </Row>
         </Container>
       </main>

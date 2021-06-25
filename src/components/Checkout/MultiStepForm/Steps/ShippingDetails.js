@@ -4,7 +4,7 @@ import {
   Row,
   Col,
 } from 'react-bootstrap'
-import { commerce } from '../../../../../lib/commerce'
+import { commerce } from '../../../../lib/commerce'
 
 const ShippingDetails = ({ checkoutToken }) => {
   const [shippingCountries, setShippingCountries] = useState([])

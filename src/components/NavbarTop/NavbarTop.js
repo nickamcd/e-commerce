@@ -36,7 +36,7 @@ const NavbarTop = ({ totalItems }) => {
           </Navbar.Brand>
           { location.pathname === '/' && (
             <Button variant="outline-info" title="Checkout" onClick={ () => handleClick("cart") } >
-              <FaShoppingCart /> <Badge>{ totalItems }</Badge>
+              <FaShoppingCart /> <Badge bg="light">{ totalItems }</Badge>
             </Button>
           ) }
         </Container>
