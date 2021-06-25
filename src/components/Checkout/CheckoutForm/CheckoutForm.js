@@ -1,7 +1,9 @@
 import { 
   Form,
   Row,
-  Col
+  Col,
+  Button,
+  ButtonGroup,
 } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 import { commerce } from '../../../lib/commerce'
@@ -76,7 +78,7 @@ const CheckoutForm = ({ checkoutToken }) => {
             <Form.Control />
           </Col>
           <Col xs={12} md={6}>
-          <Form.Label>Last Name</Form.Label>
+            <Form.Label>Last Name</Form.Label>
             <Form.Control />
           </Col>
         </Row>
