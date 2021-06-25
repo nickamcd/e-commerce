@@ -6,10 +6,10 @@ import { useState, useEffect } from 'react'
 import { commerce } from '../../lib/commerce'
 import CheckoutForm from './CheckoutForm/CheckoutForm'
 import MultiStepForm from './CheckoutForm/MultiStepForm/MultiStepForm'
+import './Checkout.css'
 
 const Checkout = ({ cart }) => {
   const [checkoutToken, setCheckoutToken] = useState(null)
-  const [activeStep, setActiveStep] = useState(0)
   const [shippingData, setShippingData] = useState({})
 
   useEffect(() => {
@@ -25,14 +25,6 @@ const Checkout = ({ cart }) => {
     generateToken()
   }, [cart])
 
-  const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
-  const prevStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1)
-
-  const next = (data) => {
-    setShippingData(data)
-    nextStep()
-  }
-
   return (
     <>
       <main>
@@ -40,8 +32,12 @@ const Checkout = ({ cart }) => {
           <h2 className="text-center">Checkout</h2>
         </Container>
         <Container>
-          <Row>
-            <MultiStepForm activeStep={ activeStep }></MultiStepForm>
+          <Row className="stepper">
+            { checkoutToken && (
+              <MultiStepForm 
+                checkoutToken={ checkoutToken } 
+              /> )
+            }
             {/* 
               <h4 className="mb-3">Shipping Address:</h4>
               { checkoutToken && (<CheckoutForm checkoutToken={ checkoutToken } />) }

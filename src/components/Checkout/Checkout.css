@@ -1,0 +1,7 @@
+.stepper {
+  color: var(--dark);
+  font-size: 1.2rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: var(--brown-medium);
+}
