@@ -5,16 +5,16 @@ import {
   ShippingDetails,
   UserDetails,
 } from './Steps'
+import { useForm, FormProvider } from 'react-hook-form'
 import './MultiStepForm.css'
 
 const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
   const [activeStep, setActiveStep] = useState(0)
-
   const [shippingData, setShippingData] = useState({})
 
+  const methods = useForm()
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
   const prevStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1) 
-
   const next = (data) => {
     console.log(data)
     setShippingData(data)
@@ -27,6 +27,7 @@ const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
         return <UserDetails 
                   checkoutToken={ checkoutToken } 
                   next={ next } 
+                  methods={ methods }
                 />
       case 1:
         return <ShippingDetails 
@@ -34,6 +35,7 @@ const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
                   checkoutToken={ checkoutToken } 
                   next={ next } 
                   prevStep={ prevStep } 
+                  methods={ methods }
                 />
       case 2:
         return <PaymentDetails 
@@ -42,6 +44,7 @@ const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
                   nextStep={ nextStep } 
                   prevStep={ prevStep } 
                   onCaptureCheckout={ onCaptureCheckout } 
+                  methods={ methods }
                 />
       case 3:
         return <Confirmation />
@@ -51,9 +54,9 @@ const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
   }
 
   return (
-    <div>
-      { formSwitch(activeStep, checkoutToken) }
-    </div>
+    <FormProvider {...methods}>
+      { formSwitch(activeStep, checkoutToken, methods) }
+    </FormProvider>
   )
 }
 
