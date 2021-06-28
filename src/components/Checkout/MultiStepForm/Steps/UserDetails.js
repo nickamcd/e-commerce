@@ -1,39 +1,35 @@
 import { 
   Form,
   Row,
-  Col,
   Button
 } from 'react-bootstrap'
+import { useForm, FormProvider } from 'react-hook-form'
+import FormTextField from './FormTextField'
 
 const UserDetails = ({ checkoutToken, nextStep }) => {
+  const methods = useForm()
+
   return (
-    <Form>
-      <Form.Group>
-        <Row className="mb-3">
-          <Col xs={12} md={6}>
-            <Form.Label>First Name</Form.Label>
-            <Form.Control required />
-          </Col>
-          <Col xs={12} md={6}>
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control required />
-          </Col>
-        </Row>
-      </Form.Group>
-      <Form.Group>
-        <Row className="mb-3">
-          <Col xs={12}>
-            <Form.Label>Email Address</Form.Label>
-            <Form.Control type="email" placeholder="example@email.com" />
-          </Col>
-        </Row>
-      </Form.Group>
-      <div className="d-flex justify-content-evenly align-items-center m-4">
-        <Button variant="secondary" title="next" onClick={ nextStep } >
-          Next Step
-        </Button>
-      </div>
-    </Form>
+    <FormProvider {...methods}>
+      <Form>
+        <Form.Group>
+          <Row className="mb-3">
+            <FormTextField required name="firstName" label="First Name" placeholder="John"/>
+            <FormTextField required name="lastName" label="Last Name" placeholder="Doe"/>
+          </Row>
+        </Form.Group>
+        <Form.Group>
+          <Row className="mb-3">
+            <FormTextField required name="email" label="Email" placeholder="example@email.com" />
+          </Row>
+        </Form.Group>
+        <div className="d-flex justify-content-evenly align-items-center m-4">
+          <Button variant="secondary" title="next" onClick={ nextStep } >
+            Next Step
+          </Button>
+        </div>
+      </Form>
+    </FormProvider>
   )
 }
 

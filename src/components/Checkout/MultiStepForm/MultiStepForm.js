@@ -7,8 +7,10 @@ import {
 } from './Steps'
 import './MultiStepForm.css'
 
-const MultiStepForm = ({ checkoutToken }) => {
+const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
   const [activeStep, setActiveStep] = useState(0)
+
+  const [shippingData, setShippingData] = useState({})
 
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
   const prevStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1) 
@@ -16,11 +18,26 @@ const MultiStepForm = ({ checkoutToken }) => {
   const formSwitch = (step, checkoutToken) => {
     switch (step) {
       case 0:
-        return <UserDetails checkoutToken={ checkoutToken } nextStep={ nextStep } />
+        return <UserDetails 
+                  checkoutToken={ checkoutToken } 
+                  setShippingData={ setShippingData }
+                  nextStep={ nextStep } 
+                />
       case 1:
-        return <ShippingDetails checkoutToken={ checkoutToken } nextStep={ nextStep } prevStep={ prevStep } />
+        return <ShippingDetails 
+                  checkoutToken={ checkoutToken } 
+                  setShippingData={ setShippingData }
+                  nextStep={ nextStep } 
+                  prevStep={ prevStep } 
+                />
       case 2:
-        return <PaymentDetails checkoutToken={ checkoutToken } nextStep={ nextStep } prevStep={ prevStep } />
+        return <PaymentDetails 
+                  shippingData={ shippingData }
+                  checkoutToken={ checkoutToken } 
+                  nextStep={ nextStep } 
+                  prevStep={ prevStep } 
+                  onCaptureCheckout={ onCaptureCheckout } 
+                />
       case 3:
         return <Confirmation />
       default:

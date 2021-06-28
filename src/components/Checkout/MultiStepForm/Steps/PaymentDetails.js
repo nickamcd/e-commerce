@@ -9,7 +9,7 @@ import ItemReview from './ItemReview/ItemReview'
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
-const PaymentDetails = ({ checkoutToken, prevStep }) => {
+const PaymentDetails = ({ shippingData, checkoutToken, prevStep, nextStep, onCaptureCheckout }) => {
   const handleSubmit = async (e, elements, stripe) => {
     e.preventDefault()
 
@@ -18,7 +18,6 @@ const PaymentDetails = ({ checkoutToken, prevStep }) => {
     const cardElement = elements.getElement(CardElement)
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({ type: 'card', card: cardElement })
-    /*
     if (error) {
       console.log(error)
     } else {
@@ -44,8 +43,11 @@ const PaymentDetails = ({ checkoutToken, prevStep }) => {
           }
         }
       }
+
+       onCaptureCheckout(checkoutToken.id, orderData)
+
+       nextStep()
     }
-    */
   }
 
   return (
@@ -60,7 +62,7 @@ const PaymentDetails = ({ checkoutToken, prevStep }) => {
                 <Button variant="danger" title="prev" onClick={ prevStep }>
                   Back
                 </Button>
-                <Button variant="success" title="next" disabled={ !stripe }>
+                <Button type="submit" variant="success" title="next" disabled={ !stripe }>
                   Pay { checkoutToken.live.subtotal.formatted_with_symbol }
                 </Button>
               </div>

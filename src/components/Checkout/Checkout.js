@@ -7,9 +7,8 @@ import { commerce } from '../../lib/commerce'
 import MultiStepForm from './MultiStepForm/MultiStepForm'
 import './Checkout.css'
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const [checkoutToken, setCheckoutToken] = useState(null)
-  // const [shippingData, setShippingData] = useState({})
 
   useEffect(() => {
     const generateToken = async () => {
@@ -32,7 +31,7 @@ const Checkout = ({ cart }) => {
         </Container>
         <Container>
           <Row className="stepper">
-            { checkoutToken && ( <MultiStepForm checkoutToken={ checkoutToken } /> ) }
+            { checkoutToken && ( <MultiStepForm checkoutToken={ checkoutToken } onCaptureCheckout={ onCaptureCheckout } /> ) }
           </Row>
         </Container>
       </main>
