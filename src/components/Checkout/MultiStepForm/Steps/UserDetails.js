@@ -12,11 +12,11 @@ const UserDetails = ({ checkoutToken, nextStep }) => {
         <Row className="mb-3">
           <Col xs={12} md={6}>
             <Form.Label>First Name</Form.Label>
-            <Form.Control />
+            <Form.Control required />
           </Col>
           <Col xs={12} md={6}>
             <Form.Label>Last Name</Form.Label>
-            <Form.Control />
+            <Form.Control required />
           </Col>
         </Row>
       </Form.Group>

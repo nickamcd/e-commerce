@@ -5,6 +5,7 @@ import {
   ShippingDetails,
   UserDetails,
 } from './Steps'
+import './MultiStepForm.css'
 
 const MultiStepForm = ({ checkoutToken }) => {
   const [activeStep, setActiveStep] = useState(0)
