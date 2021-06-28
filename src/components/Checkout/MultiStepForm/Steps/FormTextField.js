@@ -1,8 +1,9 @@
 import { Form, Col } from 'react-bootstrap'
+import { useState } from 'react'
 import { useFormContext, Controller } from 'react-hook-form'
 
 const FormTextField = ({ name, label, required, placeholder }) => {
-  const { control } = useFormContext()
+  const { control, register } = useFormContext()
 
   return (
     <Col xs={12} md={6}>
@@ -12,7 +13,11 @@ const FormTextField = ({ name, label, required, placeholder }) => {
         name={name}
         required={required}
         render={ ({ field }) => (
-          <Form.Control placeholder={ placeholder } />
+          <Form.Control
+            as="input" 
+            placeholder={ placeholder } 
+            {...register(name)}
+          />
         ) }
       />
     </Col>

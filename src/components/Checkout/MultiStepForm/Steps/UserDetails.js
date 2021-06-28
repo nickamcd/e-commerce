@@ -6,12 +6,12 @@ import {
 import { useForm, FormProvider } from 'react-hook-form'
 import FormTextField from './FormTextField'
 
-const UserDetails = ({ checkoutToken, nextStep }) => {
+const UserDetails = ({ checkoutToken, next }) => {
   const methods = useForm()
 
   return (
     <FormProvider {...methods}>
-      <Form>
+      <Form onSubmit={ methods.handleSubmit((data) => next({ ...data })) }>
         <Form.Group>
           <Row className="mb-3">
             <FormTextField required name="firstName" label="First Name" placeholder="John"/>
@@ -24,9 +24,7 @@ const UserDetails = ({ checkoutToken, nextStep }) => {
           </Row>
         </Form.Group>
         <div className="d-flex justify-content-evenly align-items-center m-4">
-          <Button variant="secondary" title="next" onClick={ nextStep } >
-            Next Step
-          </Button>
+          <Button variant="secondary" title="next" type="submit" >Next Step</Button>
         </div>
       </Form>
     </FormProvider>

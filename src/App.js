@@ -57,11 +57,12 @@ const App = () => {
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
+      console.log('here')
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
       setOrder(incomingOrder)
       refreshCart()
     } catch (err) {
-      setErrorMessage(err.data.error.message)
+      console.log(err.data.error.message)
     }
   }
   

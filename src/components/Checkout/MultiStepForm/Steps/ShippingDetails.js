@@ -9,7 +9,7 @@ import { useForm, FormProvider } from 'react-hook-form'
 import { commerce } from '../../../../lib/commerce'
 import FormTextField from './FormTextField'
 
-const ShippingDetails = ({ checkoutToken, nextStep, prevStep }) => {
+const ShippingDetails = ({ checkoutToken, next, prevStep }) => {
   const [shippingCountries, setShippingCountries] = useState([])
   const [shippingCountry, setShippingCountry] = useState('')
   const [shippingSubdivisions, setShippingSubdivisions] = useState([])
@@ -64,7 +64,7 @@ const ShippingDetails = ({ checkoutToken, nextStep, prevStep }) => {
 
   return (
     <FormProvider {...methods}>
-      <Form onSubmit=''>
+      <Form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
         <Form.Group>
           <Row className="mb-3">
             <FormTextField required name="address1" label="Address" placeholder="1234 Main St."/>
@@ -115,12 +115,8 @@ const ShippingDetails = ({ checkoutToken, nextStep, prevStep }) => {
           </Row>
         </Form.Group>
         <div className="d-flex justify-content-evenly align-items-center m-4">
-          <Button variant="secondary" title="prev" onClick={ prevStep } >
-            Previous Step
-          </Button>
-          <Button variant="secondary" title="next" onClick={ nextStep } >
-            Next Step
-          </Button>
+          <Button variant="secondary" title="prev" onClick={ prevStep } >Previous Step</Button>
+          <Button variant="secondary" title="next" type="submit" >Next Step</Button>
         </div>
       </Form>
     </FormProvider>

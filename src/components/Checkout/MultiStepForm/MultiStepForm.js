@@ -15,19 +15,24 @@ const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
   const prevStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1) 
 
+  const next = (data) => {
+    console.log(data)
+    setShippingData(data)
+    nextStep()
+  }
+
   const formSwitch = (step, checkoutToken) => {
     switch (step) {
       case 0:
         return <UserDetails 
                   checkoutToken={ checkoutToken } 
-                  setShippingData={ setShippingData }
-                  nextStep={ nextStep } 
+                  next={ next } 
                 />
       case 1:
         return <ShippingDetails 
+                  shippingData={ shippingData }
                   checkoutToken={ checkoutToken } 
-                  setShippingData={ setShippingData }
-                  nextStep={ nextStep } 
+                  next={ next } 
                   prevStep={ prevStep } 
                 />
       case 2:
