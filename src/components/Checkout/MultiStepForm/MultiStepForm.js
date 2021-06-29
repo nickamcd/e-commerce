@@ -8,7 +8,7 @@ import {
 import { useForm, FormProvider } from 'react-hook-form'
 import './MultiStepForm.css'
 
-const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
+const MultiStepForm = ({ checkoutToken, onCaptureCheckout, order }) => {
   const [activeStep, setActiveStep] = useState(0)
   const [shippingData, setShippingData] = useState({})
 
@@ -16,7 +16,6 @@ const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
   const prevStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1) 
   const next = (data) => {
-    console.log(data)
     setShippingData(data)
     nextStep()
   }
@@ -47,7 +46,7 @@ const MultiStepForm = ({ checkoutToken, onCaptureCheckout }) => {
                   methods={ methods }
                 />
       case 3:
-        return <Confirmation />
+        return <Confirmation order={ order }/>
       default:
         // do nothing
     }

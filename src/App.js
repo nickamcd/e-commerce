@@ -18,7 +18,6 @@ const App = () => {
   const [products, setProducts] = useState([])
   const [cart, setCart] = useState({})
   const [order, setOrder] = useState({})
-  const [errorMessage, setErrorMessage] = useState('')
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list()
@@ -57,7 +56,6 @@ const App = () => {
 
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
-      console.log('here')
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
       setOrder(incomingOrder)
       refreshCart()
@@ -97,7 +95,7 @@ const App = () => {
         </Route>
       </Switch>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

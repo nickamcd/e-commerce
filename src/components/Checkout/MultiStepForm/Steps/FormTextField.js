@@ -1,5 +1,4 @@
 import { Form, Col } from 'react-bootstrap'
-import { useState } from 'react'
 import { useFormContext, Controller } from 'react-hook-form'
 
 const FormTextField = ({ name, label, required, placeholder }) => {

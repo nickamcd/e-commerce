@@ -31,7 +31,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         </Container>
         <Container>
           <Row className="stepper">
-            { checkoutToken && ( <MultiStepForm checkoutToken={ checkoutToken } onCaptureCheckout={ onCaptureCheckout } /> ) }
+            { checkoutToken && ( 
+              <MultiStepForm 
+                checkoutToken={ checkoutToken } 
+                onCaptureCheckout={ onCaptureCheckout } 
+                order={ order }
+              /> ) }
           </Row>
         </Container>
       </main>
