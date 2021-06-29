@@ -1,3 +1,7 @@
+---
+permalink: /index.html
+---
+
 This is a small ecommerce site for a fake store that sells roasts of coffee.
 
 The ecommerce backend is handled through a combination of commerce.js for handling the store and stripe for handling the card payments.
