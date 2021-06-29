@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { commerce } from './lib/commerce'
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route,
 } from 'react-router-dom'
@@ -71,7 +71,7 @@ const App = () => {
   }, [])
 
   return (
-    <Router>
+    <HashRouter>
       <NavbarTop totalItems={ cart.total_items }/>
       <Switch>
         <Route exact path="/">
@@ -94,7 +94,7 @@ const App = () => {
           />
         </Route>
       </Switch>
-    </Router>
+    </HashRouter>
   )
 }
 
